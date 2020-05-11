@@ -26,6 +26,8 @@ Depending on the transaction state, the following states are returned
 
 ## Usage
 
+* `python work.py` # for starting worker 
+
 * `python manage.py run` # for normal run
 * `python manage.py start` # for debug
 
