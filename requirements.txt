@@ -18,3 +18,7 @@ configparser
 
 # misc
 requests>=2.9.1
+
+#asynchronous worker
+rq
+redis
