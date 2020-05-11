@@ -4,14 +4,22 @@
 
 ## Installation
 
+* `pip install -r requirements.txt` # to install dependencies
+
 * edit `config.py` and provide private keys and settings
 * `python manage.py install`
 
+## Use virtual environment if required, to minimize libaray conflicts
+
 ## Usage
 
-* `python manage.py runserver`
+* `python manage.py run` # for normal run
+* `python manage.py start` # for debug
 
 The faucet is then available at URL `http://localhost:5000`
+
+## Test
+* `python test_faucet.py`
 
 ## Nginx configuration
 

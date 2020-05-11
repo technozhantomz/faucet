@@ -46,7 +46,7 @@ def api_error(msg):
 
 @app.route('/')
 def index():
-    return "Jemshid is diagnosing this machine"
+    # return "Jemshid is diagnosing this machine"
     return render_template('index.html')
 
 
