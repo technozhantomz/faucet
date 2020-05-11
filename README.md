@@ -4,11 +4,13 @@
 
 ## Usage
 There are two APIs
-'/api/v1/accounts', methods=['POST'], defaults={'referrer': None} # This is the legacy API
-'/api/v2/accounts', methods=['POST'], defaults={'referrer': None} # This is the asynchronous API
+* `'/api/v1/accounts', methods=['POST'], defaults={'referrer': None}` # This is the legacy API
+* `'/api/v2/accounts', methods=['POST'], defaults={'referrer': None}` # This is the asynchronous API
+
 v2 moves account creation to a rq worker process, so that a quck response is offered by the API.
 This helps in managing peak loads, that is simultaneous account creations.
 Depending on the transaction state, the following states are returned
+
 1. init
 2. run
 3. acccount exists
