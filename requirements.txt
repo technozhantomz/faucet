@@ -3,6 +3,7 @@ peerplays
 autobahn
 pycrypto
 pyyaml
+pyCryptodomex
 
 # flask
 flask
@@ -19,6 +20,9 @@ configparser
 # misc
 requests>=2.9.1
 
-#asynchronous worker
+# asynchronous worker
 rq
 redis
+
+# for tests
+numpy
