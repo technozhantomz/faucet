@@ -7,5 +7,5 @@ test:
     script:
         - apt-get update -qy
         - apt-get install -y python3-pip
-        - pip install -r requirements.txt
+        - pip3 install -r requirements.txt
         - python3 -m unittest test_faucet_v1.py
