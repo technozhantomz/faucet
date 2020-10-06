@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import unittest
 import requests
 import numpy as np
 import json
@@ -11,9 +12,9 @@ urlBase = 'https://dick-faucet.peerplays.download'
 
 # 35.183.11.136
 # urlBase = 'http://35.183.11.136:5000'
-urlBase = 'http://localhost:5000'
+# urlBase = 'http://localhost:5000'
 api = '/api/v1/accounts'
-api = '/api/v2/accounts'
+# api = '/api/v2/accounts'
 
 url = urlBase + api
 
@@ -32,11 +33,13 @@ def JTest(name=None):
     jTest['account']['name'] = name
     return jTest
 
+
 def TestStates(jTest):
     r = requests.post(url, json=jTest, timeout=(300, 600))
     text = r.text
     text = json.loads(text)
     return text
+
 
 def TestStatesAll():
     jTest = JTest()
@@ -48,7 +51,7 @@ def TestStatesAll():
     print('Test Account Creation Started')
     while True:
         text = TestStates(jTest)
-        # print(text)
+        print(text)
         if "error" in text:
             if text["error"]["base"][0] == "Account init":
                 break
@@ -69,6 +72,14 @@ def TestStatesAll():
     print('Test Account Created')
     print("Test Successful, All transaction states are reproduced")
 
+
+def TestV1():
+    jTest = JTest()
+    print('Test Started')
+    text = TestStates(jTest)
+    return text
+
+
 def Bombard(jTest):
     tic = time.time()
     try:
@@ -79,7 +90,8 @@ def Bombard(jTest):
         # print(jTest)
         textDict = json.loads(text)
         if 'account' in textDict:
-            print('name:', textDict['account']['name'], tocReq, time.time() - tic)
+            print('name:', textDict[
+                'account']['name'], tocReq, time.time() - tic)
             return (True, time.time(), tocReq)
             # return True, textDict
         else:
@@ -108,10 +120,11 @@ def Bombards(count, numberOfProcesses):
     print('done pool map')
     p.close()
     print('closed pool')
-    #r = list(map(Bombard, jTests))
+    # r = list(map(Bombard, jTests))
     toc = time.time() - tic
     print('time Total=', toc, 'count=', count, 'average=', toc/count)
-    #print('timePerCall = ', toc / count, 'succeesScore:', np.sum(r) * 100 / count)
+    # print(
+    # 'timePerCall = ', toc / count, 'succeesScore:', np.sum(r) * 100 / count)
     return r
 #    for k in range(count):
 #        jTest = jTests[k]
@@ -121,7 +134,17 @@ def Bombards(count, numberOfProcesses):
 #        textDicts.append(textDict)
 #    return resBombards, textDicts
 
-    
+
+class Testcases(unittest.TestCase):
+
+    def test_account_creation(self):
+        text = TestV1()
+        self.assertEqual(
+                text["account"]["active_key"],
+                'TEST6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV')
+
 
 if __name__ == "__main__":
-    TestStatesAll()
+    # TestStatesAll()
+    # TestV1()
+    testcases = Testcases()
