@@ -8,7 +8,7 @@ import json
 import time
 from multiprocessing import Pool
 
-urlBase = 'https://dick-faucet.peerplays.download'
+urlBase = 'https://login.commodity.llc'
 
 # 35.183.11.136
 # urlBase = 'http://35.183.11.136:5000'
