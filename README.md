@@ -2,16 +2,39 @@
 
 `tapin` is a python-based faucet for PeerPlays.
 
+## Usage
+There are two APIs
+* `'/api/v1/accounts', methods=['POST'], defaults={'referrer': None}` # This is the legacy API
+* `'/api/v2/accounts', methods=['POST'], defaults={'referrer': None}` # This is the asynchronous API
+
+v2 moves account creation to a rq worker process, so that a quck response is offered by the API.
+This helps in managing peak loads, that is simultaneous account creations.
+Depending on the transaction state, the following states are returned
+
+1. init
+2. run
+3. acccount exists
+
 ## Installation
+
+* `pip install -r requirements.txt` # to install dependencies
 
 * edit `config.py` and provide private keys and settings
 * `python manage.py install`
 
+## Use virtual environment if required, to minimize libaray conflicts
+
 ## Usage
 
-* `python manage.py runserver`
+* `python work.py` # for starting worker 
+
+* `python manage.py run` # for normal run
+* `python manage.py start` # for debug
 
 The faucet is then available at URL `http://localhost:5000`
+
+## Test
+* `python test_faucet.py`
 
 ## Nginx configuration
 
