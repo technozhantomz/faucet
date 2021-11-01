@@ -1,5 +1,5 @@
 # git repos
-peerplays
+-e git+ssh://git@github.com/technozhantomz/peerplays.git@master#egg=peerplays
 autobahn
 # pycrypto
 pycryptodome
@@ -13,7 +13,7 @@ Flask-Session
 flask-cors
 flask-script
 flask-mail
-
+-e git+ssh://git@github.com/technozhantomz/graphenelib.git@master#egg=graphenelib
 # hosting
 gunicorn
 configparser
@@ -24,6 +24,7 @@ requests>=2.9.1
 # asynchronous worker
 rq
 redis
+redis-server
 
 # for tests
 numpy
