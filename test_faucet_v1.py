@@ -11,8 +11,8 @@ from multiprocessing import Pool
 urlBase = 'https://dick-faucet.peerplays.download'
 
 # 35.183.11.136
- #urlBase = 'http://143.110.152.24:5000'
- urlBase = 'http://localhost:5000'
+# urlBase = 'http://35.183.11.136:5000'
+# urlBase = 'http://localhost:5000'
 api = '/api/v1/accounts'
 # api = '/api/v2/accounts'
 
@@ -22,9 +22,9 @@ url = urlBase + api
 def JTest(name=None):
     jTemplate = {'account': {
         'name': 'qa3',
-        'owner_key': 'USD6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV',
-        'active_key': 'USD6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV',
-        'memo_key': 'USD6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV',
+        'owner_key': 'TEST6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV',
+        'active_key': 'TEST6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV',
+        'memo_key': 'TEST6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV',
         'refcode': '',
         'referrer': ''}}
     if isinstance(name, type(None)):
