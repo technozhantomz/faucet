@@ -129,7 +129,7 @@ def tapbasic(referrer):
             peerplays.transfer(
                 account["name"],
                 config.get("initial_balance", 100),
-                config.get("core_asset", "USD"),
+                config.get("core_asset", "LLC"),
                 "Initial Balance",
                 registrar["id"],
             )
@@ -233,7 +233,7 @@ def AccountCreationForWorker(account):
             peerplays.transfer(
                 account["name"],
                 config.get("initial_balance", 100),
-                config.get("core_asset", "USD"),
+                config.get("core_asset", "LLC"),
                 "Initial Balance",
                 registrar["id"],
             )
